@@ -2,13 +2,18 @@
 
 # LCPullRefresh
 
-使用UIActivityIndicatorView给UIScrollView提供了刷新功能，支持上下左右四个方向刷新。
+Use UIActivityIndicatorView to provide a pull-to-refresh function for UIScrollView.
 
-## 用法
+## Requirements
 
-### 上拉刷新
+- **iOS 8.0+**
+- **Xcode 11.0+**
 
-添加上拉触发事件
+## Usage
+
+### Pull-up refresh
+
+Add pull-up trigger event
 
 ```objective-c
 [tableView lc_addHeaderRefreshingWithActionHandler:^{
@@ -16,15 +21,15 @@
 }];
 ```
 
-手动刷新
+Manual refresh
 
 ```objective-c
 [tableView lc_beginHeaderRefreshing];
 ```
 
-### 下拉加载
+### Drop down loading
 
-添加下拉触发事件
+Add dropdown trigger event
 
 ```objective-c
 [tableView lc_addFooterRefreshingWithActionHandler:^{
@@ -32,45 +37,44 @@
 }];
 ```
 
-手动刷新
+Add dropdown trigger event
 
 ```objective-c
 [tableView lc_beginFooterRefreshing];
 ```
 
-### 结束刷新
+### End refresh
 
-因为只创建了一个UIActivityIndicatorView，所以`lc_endRefreshing`会结束所有刷新。
+Because only one UIActivityIndicatorView is created, `lc_endRefreshing` will end all refreshes.
 
 ```objective-c
 [self.tableView lc_endRefreshing];
 ```
 
-### 设置刷新方向
+### Set refresh direction
 
-可以设置水平方向或垂直方向刷新。
+You can set horizontal or vertical refresh.
 
 ```objective-c
-// 设置左右刷新
 tableView.lc_refreshScrollDirection = LCRefreshScrollDirectionHorizontal;
 ```
 
-## 安装
+## Installation
 
 ### CocoaPods
 
-1. 将 cocoapods 更新至最新版本;
-2. 在 Podfile 中添加`pod 'LCPullRefresh'`;
-3. 执行 `pod install` 或 `pod update`;
-4. 导入` <LCPullRefresh/UIScrollView+LCPullRefresh.h>`.
+To integrate LCPullRefresh into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
-### 手动安装
+```ruby
+pod 'LCPullRefresh'
+```
 
-1. 下载 LCPullRefresh文件夹内的所有内容;
-2. 将 LCPullRefresh内的源文件添加(拖放)到你的工程.
+### Manual
 
-## 系统要求
+1. Download everything in the LCPullRefresh folder;
+2. Add (drag and drop) the source files in LCPullRefresh to your project;
+3. Import `UIScrollView+LCPullRefresh.h`.
 
-- **iOS 8.0+**
-- **Xcode 11.0+**
+## License
 
+LCPullRefresh is provided under the MIT license. See LICENSE file for details.
